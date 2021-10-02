@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import axios from 'axios';
 
-const Card = () => {
+import useFetch from "../../hooks/feet-hook";
+
+const Card = (props) => {
+
+  // console.log(props.data[0].name);
+  console.log(props.data);
   return (
     <section>
-      <form action="">
-        <input type="text" />
-        <button>Search</button>
-      </form>
+      <p>{props.data.name}</p>
     </section>
   )
 };
