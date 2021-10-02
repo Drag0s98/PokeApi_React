@@ -1,9 +1,11 @@
 import React from "react";
 import './header.css'
 
-const Header = () => {
+const Header = (props) => {
+
+  console.log(props);
   return (
-    <header>
+    <header style={props.style}>
       <figure>
         <img  className='head_logo' alt="PokeReact" si/>
       </figure>
