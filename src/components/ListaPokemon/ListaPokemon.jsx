@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Card/card";
-import Main from "../Main/main";
 
 
 const ListaPokemon = (props) => {
