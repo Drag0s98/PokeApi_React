@@ -1,4 +1,4 @@
-import { BrowserRouter, matchPath, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 import './styles/styles.scss'
@@ -11,26 +11,29 @@ import Footer from './components/Footer'
 
 function App() {
 
-  const sacarHeader = () =>{
-    if(window.location.pathname !== '/'){
+  const sacarHeader = () => {
+    if (window.location.pathname !== '/') {
       return {
-        display: 'block' 
+        display: 'block'
+      }
+    }
+  }
+  const sacarFooter = () => {
+    if (window.location.pathname !== '/') {
+      return {
+        display: 'flex'
       }
     }
   }
 
-  console.log();
-
   return (
-    <div className="App">
-      <body>
+      <div className="App">
         <BrowserRouter>
           <Header style={sacarHeader()} />
           <Main />
-          <Footer />
+          <Footer style={sacarFooter()} />
         </BrowserRouter>
-      </body>
-    </div>
+      </div>
   );
 }
 

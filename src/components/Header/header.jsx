@@ -3,7 +3,6 @@ import './header.css'
 
 const Header = (props) => {
 
-  console.log(props);
   return (
     <header style={props.style}>
       <figure>

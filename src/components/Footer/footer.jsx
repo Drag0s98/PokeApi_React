@@ -1,8 +1,8 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
-    <footer>Soy el footer</footer>
+    <footer style={props.style}>Soy el footer</footer>
   )
 };
 
