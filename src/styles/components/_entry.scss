@@ -1,6 +1,4 @@
-header{
-    display: none;
-}
+
 video{
     position: absolute;
     width: 100%;
@@ -11,7 +9,7 @@ video{
 
 }
 .entryBody{
-    display: flex;
+    display: flex; 
     justify-content: center;
     height: 95vh;
     width: 100%;
