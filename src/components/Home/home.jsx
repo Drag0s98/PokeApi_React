@@ -1,32 +1,36 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListaPokemon from "../ListaPokemon";
+
+import { useDebounce } from "use-debounce/lib";
+
 
 import './home.css'
 
 const Main = () => {
 
   const [lista, setLista] = useState([])
+  const [value, setValue] = useState('')
 
+  const [debounced] = useDebounce(value, 1000);
 
-
-  const handdleSubmit =  async (event) => {
-    event.preventDefault();
-    let input = event.target.elements.input.value
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${input}`)
-    setLista([...lista, res.data])
-  }
+  useEffect( async () => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debounced}`)
+      setLista([...lista, res.data])
+      console.log('cambio');
+    } catch (err) {
+      console.log(err)
+    }
+  }, [debounced])
 
   return (
     <section>
       <article>
-        <form onSubmit={handdleSubmit}>
-          <input type="text" name='input' />
-          <button>Enviar</button>
-        </form>
+        <input type="text" name='input' onChange={(e) => setValue(e.target.value)} />
       </article>
       <article>
-        <ListaPokemon  data={lista}/>
+        <ListaPokemon data={lista} />
       </article>
     </section>
   )
