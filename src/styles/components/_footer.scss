@@ -1,0 +1,15 @@
+footer{
+    margin-top: 10em;
+    display: none;
+    height: 3em;
+    width: 100%;
+    bottom: 0;
+    background-color: $primary-color-red;
+    position: fixed;
+    align-items: center;
+    color: black;
+    & > div{
+        width: 100%;
+        font-size: 0.7em;
+    }
+}
