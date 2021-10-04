@@ -1,5 +1,7 @@
 .welcomeMsg{
     margin-top: 3em;
+    font-family: PokemonHollow;
+    margin-left: 2em;
 }
 
 .homeSection{
@@ -31,23 +33,10 @@
         background-color: $primary-color-blue;
         opacity: 0.8;
     }
-    & > button{
-        margin-top: 1em;
-        width: 10em;
-        height: 3em;
-        border-radius: 5px;
-        border: 3px outset $primary-color-blue;
-        background-color: $primary-color-yellow;
-        color: $primary-color-blue;
-        font-size: 1rem;
-        font-weight: 600;
-        box-shadow: -1px 3px 3px gray;
-        cursor: pointer;
-
-    }
 }
 .pokeList{
     margin-top: 5em;
+    margin-bottom: 10em;
 }
 
 .poke {

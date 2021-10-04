@@ -1,6 +1,14 @@
 @import './utils/mixins';
 @import './utils/variables.scss';
 
+@font-face {
+    font-family: PokemonHollow;
+    src: url('./assets/fonts/PokemonHollow.ttf');
+}
+@font-face {
+    font-family: PokemonSolid;
+    src: url('./assets/fonts/PokemonSolid.ttf');
+}
 
 @import './views/app';
 @import './components/entry';
