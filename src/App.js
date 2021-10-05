@@ -14,7 +14,7 @@ function App() {
   const sacarHeader = () => {
     if (window.location.pathname !== '/') {
       return {
-        display: 'block'
+        display: 'flex'
       }
     }
   }

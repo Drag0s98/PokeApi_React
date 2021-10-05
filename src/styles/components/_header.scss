@@ -1,8 +1,12 @@
 header {
-  background-color:  $primary-color-red;
+  background-color:  $primary-color-yellow;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
+}
+figure{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 3em;
 }
 .head_logo {
     content: url(../assets/img/title.png);

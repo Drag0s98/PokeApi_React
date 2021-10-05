@@ -1,0 +1,31 @@
+.bm-item-list {
+  background-color: $primary-color-blue;
+  opacity: 0.9;
+}
+
+ul {
+  height: 20em;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+li {
+  list-style: none;
+  color: $primary-color-yellow;
+  margin-top: 3em;
+  font-size: 1.2em;
+  outline: none;
+  text-indent: 1em;
+  font-weight: 600;
+
+  & > a {
+    text-decoration: none;
+  }
+}
+
+.bm-burger-button {
+  & > button {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
