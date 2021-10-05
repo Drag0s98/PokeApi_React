@@ -8,6 +8,9 @@ ul {
   display: flex !important;
   flex-direction: column;
   align-items: center;
+  & > a {
+    text-decoration: none ;
+  }
 }
 li {
   list-style: none;
@@ -18,9 +21,7 @@ li {
   text-indent: 1em;
   font-weight: 600;
 
-  & > a {
-    text-decoration: none;
-  }
+ 
 }
 
 .bm-burger-button {
