@@ -1,0 +1,63 @@
+.card {
+  margin-bottom: 5em;
+  border: 5px inset yellow;
+  border-radius: 12px;
+  width: 15em;
+  @include center;
+  flex-direction: column;
+
+  & > .fire {
+    background-color: rgb(238, 97, 97);
+    width: 100%;
+  }
+  & > .electric {
+    background-color: rgb(246, 246, 117);
+    width: 100%;
+  }
+  & > .grass {
+    background-color: rgb(159, 236, 146);
+    width: 100%;
+  }
+  & > .water {
+    background-color: rgb(146, 218, 236);
+    width: 100%;
+  }
+  & > .poison {
+    background-color: rgb(151, 110, 135);
+    width: 100%;
+  }
+}
+.cardHeader {
+  @include center;
+  flex-direction: column;
+
+  & > img {
+    width: 12em;
+    border: 1px solid $primary-color-red;
+    background-color: rgb(216, 255, 164);
+    margin-bottom: 1em;
+    border-radius: 5px;
+  }
+  & > .pokemonType {
+    text-transform: capitalize;
+  }
+  & > .pokemonName {
+    align-self: flex-start;
+    margin-left: 2em;
+    margin-top: 1em;
+    text-transform: capitalize;
+  }
+}
+.cardBody{
+  @include center;
+  flex-direction: column;
+  margin-top: 1em;
+
+  & > h4{
+    margin-top: 3px;
+  }
+
+  & > p {
+    text-transform: capitalize;
+  }
+}

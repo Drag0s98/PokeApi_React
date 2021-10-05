@@ -1,0 +1,13 @@
+header {
+  background-color:  $primary-color-red;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+}
+.head_logo {
+    content: url(../assets/img/title.png);
+    max-width: 15em;
+}
+header{
+  display: none;
+}
