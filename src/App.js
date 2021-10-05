@@ -27,13 +27,13 @@ function App() {
   }
 
   return (
-      <div className="App">
-        <BrowserRouter>
-          <Header style={sacarHeader()} />
-          <Main />
-          <Footer style={sacarFooter()} />
-        </BrowserRouter>
-      </div>
+    <div className="App">
+      <BrowserRouter>
+        <Header style={sacarHeader()} />
+        <Main />
+      </BrowserRouter>
+      <Footer style={sacarFooter()} />
+    </div>
   );
 }
 
