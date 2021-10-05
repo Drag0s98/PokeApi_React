@@ -13,3 +13,28 @@ footer{
         font-size: 0.7em;
     }
 }
+
+.footerBox{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: $primary-color-yellow;
+    font-size: 12px;
+}
+.footer_mid{
+    margin-left: 2em;
+}
+.icon1{
+    color: $primary-color-blue;
+
+    :hover{
+        color: white;
+    }
+}
+.footer_right{
+    margin-left: 2em;
+
+}
