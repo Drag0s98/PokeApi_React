@@ -15,12 +15,13 @@ const Card = (props) => {
       return 'grass'
     }
     if (props.data.types[0].type.name === 'water') {
-      return 'water'
+      return 'wated'
     }
     if (props.data.types[0].type.name === 'poison') {
       return 'poison'
     }
   }
+
 
   return (
     <>

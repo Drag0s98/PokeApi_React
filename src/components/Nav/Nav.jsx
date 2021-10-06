@@ -11,16 +11,18 @@ const Nav = () => {
   const toggleButton = () => {
     setisActivate(!isActivate)
   }
+
+
   return (
-    <div className='burgerMenu'>
+    <div>
       <HamburgerArrow isActive={isActivate} toggleButton={toggleButton} buttonColor="transparent" barColor="white" />
-        <Menu left className={'menu'}>
-          <ul>
-            <Link to='/home'><li>Home</li></Link>
-            <Link to='/new'><li>Create Pokemon</li></Link>
-            <Link to='/search'><li>Search</li></Link>
-          </ul>
-        </Menu>
+      <Menu left className={'menu'}  >
+        <ul>
+          <Link to='/home'><li>Home</li></Link>
+          <Link to='/new'><li>Create Pokemon</li></Link>
+          <Link to='/search'><li>Search</li></Link>
+        </ul>
+      </Menu>
     </div>
   )
 };
