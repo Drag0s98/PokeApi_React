@@ -1,0 +1,21 @@
+.homeBox{
+    width: 100%;
+    @include center;
+    flex-direction: column;
+}
+.boxList{
+    display: flex;    
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    @include center;
+}
+.pokeNames{
+    width: 7em;
+    color: black;
+    text-transform: capitalize;
+}
+.welcomeText{ 
+    margin: 2em;
+    font-size: 1.2em;
+}
