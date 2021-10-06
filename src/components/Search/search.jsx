@@ -11,13 +11,11 @@ import './search.css'
 
 const Main = () => {
 
-  const { pokeData, setpokeData } = useContext(DataContext)
+  const { data, setData } = useContext(DataContext)
 
   const { busqueda, setBusqueda} = useContext(DataContext)
 
   const [value, setValue] = useState(null)
-
-  // const [busqueda, setBusqueda] = useState([])
 
   const [debounced] = useDebounce(value, 3000);
 
@@ -31,7 +29,10 @@ const Main = () => {
       let exist = busqueda.includes(debounced)
       if (exist === false && debounced !== null) {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${debounced}`)
-          .then(response => setpokeData([...pokeData, response.data]))
+          .then(response =>{
+            setData([...data, response.data])
+            setBusqueda([...busqueda, response.data.id.toString(), response.data.name])
+          })
       } else {
         console.log('El pokemon existe');
       }
@@ -67,7 +68,7 @@ const Main = () => {
       </article>
       <article className='pokeList'>
         {spinner === true ? <Spinner /> : ''}
-        {texto === true ? <ListaPokemon data={pokeData} /> : ''}
+        {texto === true ? <ListaPokemon data={data} /> : ''}
       </article>
     </section>
   )
