@@ -14,6 +14,14 @@ function App() {
 
   const [pokeData, setpokeData] = useState([])
 
+  const [busqueda, setBusqueda] = useState([])
+
+
+  const pokeObj = { 
+    pokeData, setpokeData, busqueda, setBusqueda
+  }
+
+  console.log(pokeObj);
   const sacarHeader = () => {
     if (window.location.pathname !== '/') {
       return {
@@ -32,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <DataContext.Provider data={pokeData}>
+        <DataContext.Provider value={pokeObj}>
           <Header style={sacarHeader()} />
           <Main />
         </DataContext.Provider>
