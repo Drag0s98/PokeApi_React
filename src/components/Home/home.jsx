@@ -17,14 +17,18 @@ const Home = () => {
 
   return (
     <section className='homeBox'>
-      <h4 className='welcomeText'>Here you can found some pokemons to search in the browser</h4>
-      <ul className='boxList'>
-        {
-          pokemons!==undefined?pokemons.map((param, i )=>{
-            return <li className='pokeNames' key={i}>{param.name}</li>
-          }):<Spinner/>
-        }
-      </ul>
+      <article className='welcomeBox'>
+        <h4 >Here you can found some pokemons to search in the browser</h4>
+      </article>
+      <article>
+        <ul className='boxList'>
+          {
+            pokemons !== undefined ? pokemons.map((param, i) => {
+              return <li className='pokeNames' key={i}>{param.name}</li>
+            }) : <Spinner />
+          }
+        </ul>
+      </article>
     </section>
   )
 };
