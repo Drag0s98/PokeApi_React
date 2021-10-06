@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../../context/pokeData.context";
 import './NewPoke.css'
 
 
 const NewPoke = () => {
 
-  const [myPoke, setmyPoke] = useState([])
-  const { data, setData } = useContext(DataContext)
+
+  const { setData } = useContext(DataContext)
 
 
   const invForm = (event) => {
@@ -19,7 +19,11 @@ const NewPoke = () => {
         }
       }],
       sprites: {
-        front_default: event.target.image.value
+        other: {
+          ['official-artwork']: {
+            front_default: event.target.image.value
+          }
+        }
       },
       abilities: [{
         ability: {
@@ -31,13 +35,27 @@ const NewPoke = () => {
           name: event.target.habilityTwo.value
         }
       }],
-      id:  Math.floor(Math.random()*(900-1000))+1000
+      stats: [
+        { base_stat: event.target.hp.value },
+        { base_stat: event.target.attack.value },
+        { base_stat: event.target.defense.value },
+        { base_stat: event.target.special_attack.value },
+        { base_stat: event.target.special_defense.value },
+        { base_stat: event.target.speed.value },
+      ],
+      id: Math.floor(Math.random() * (900 - 1000)) + 1000
     }])
     event.target.name.value = ''
     event.target.type.value = ''
     event.target.image.value = ''
     event.target.habilityOne.value = ''
     event.target.habilityTwo.value = ''
+    event.target.hp.value = ''
+    event.target.attack.value = ''
+    event.target.defense.value = ''
+    event.target.special_attack.value = ''
+    event.target.special_defense.value = ''
+    event.target.speed.value = ''
   }
 
   return (
@@ -56,6 +74,18 @@ const NewPoke = () => {
           </select>
           <label>Image</label>
           <input type="text" name="image" />
+          <label>HP</label>
+          <input type="number" name="hp" />
+          <label>Attack</label>
+          <input type="number" name="attack" />
+          <label>Defense</label>
+          <input type="number" name="defense" />
+          <label>Special Attack</label>
+          <input type="number" name="special_attack" />
+          <label>Special Defense</label>
+          <input type="number" name="special_defense" />
+          <label>Speed</label>
+          <input type="number" name="speed" />
           <label>Hability 1</label>
           <input type="text" name="habilityOne" />
           <label>Hability 2</label>

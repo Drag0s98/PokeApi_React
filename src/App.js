@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import './styles/styles.scss'
@@ -21,7 +21,6 @@ function App() {
     data, setData, busqueda, setBusqueda
   }
 
-  console.log(pokeObj);
   const sacarHeader = () => {
     if (window.location.pathname !== '/') {
       return {

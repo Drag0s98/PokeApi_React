@@ -13,7 +13,7 @@ const Main = () => {
 
   const { data, setData } = useContext(DataContext)
 
-  const { busqueda, setBusqueda} = useContext(DataContext)
+  const { busqueda, setBusqueda } = useContext(DataContext)
 
   const [value, setValue] = useState(null)
 
@@ -29,7 +29,7 @@ const Main = () => {
       let exist = busqueda.includes(debounced)
       if (exist === false && debounced !== null) {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${debounced}`)
-          .then(response =>{
+          .then(response => {
             setData([...data, response.data])
             setBusqueda([...busqueda, response.data.id.toString(), response.data.name])
           })
@@ -47,10 +47,10 @@ const Main = () => {
         setSpinner(true)
         setTexto(false)
         new Promise(resolve => setTimeout(resolve, 3500))
-        .then(() => {
-          setSpinner(false)
-          setTexto(true)
-        })
+          .then(() => {
+            setSpinner(false)
+            setTexto(true)
+          })
       }
     } catch (err) {
     }
@@ -58,7 +58,9 @@ const Main = () => {
 
   return (
     <section className='homeSection'>
-      <h3 className='welcomeMsg'>Bienvenido a PokeReact. Busca tu pokemon</h3>
+      <article className='welcomeBox'>
+        <h3 className='welcomeMsg'>Bienvenido a PokeReact. Busca tu pokemon</h3>
+      </article>
       <article className='pokeForm'>
         <input type="text" className='pokeSearch' name='input' onChange={async (e) => {
           setValue(e.target.value)

@@ -1,21 +1,46 @@
-.homeBox{
-    width: 100%;
-    @include center;
-    flex-direction: column;
+.homeBox {
+  width: 100%;
+  flex-direction: column;
+  @include center;
 }
-.boxList{
-    display: flex;    
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    @include center;
+.boxList {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10em;
+  @include center;
 }
-.pokeNames{
-    width: 7em;
-    color: black;
-    text-transform: capitalize;
+.pokeNames {
+  width: 9em;
+  height: 3em;
+  color: black;
+  @include center;
+  margin-left: 8px;
+  background-color: $primary-color-blue;
+  color: $primary-color-yellow;
+  text-transform: capitalize;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+  &:hover {
+    height: 3.2em;
+    width: 9.1em;
+  }
 }
-.welcomeText{ 
-    margin: 2em;
-    font-size: 1.2em;
+
+.welcomeBox {
+  margin: 2em;
+  font-size: 1.2em;
+  background-color: $primary-color-yellow;
+  width: 17em;
+  height: 8em;
+  border-radius: 10px;
+  border: 2px solid grey;
+  box-shadow: 3px 3px 3px grey;
+  @include center;
+  & > h4 {
+    font-weight: 600;
+    color: $primary-color-blue;
+    margin: 5px;
+  }
 }
