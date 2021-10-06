@@ -27,7 +27,7 @@ ex. [@Drag0s98]
 * 1.0
     * Initial Release : Simple browser
 * 2.0
-    * In progress : Routes, pokemon's creation and more funtionalitys
+    * More features : Routes, pokemon's creation, re-styling and route with query params
 
 ## License
 

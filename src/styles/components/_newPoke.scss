@@ -1,0 +1,32 @@
+.formBox{
+    margin-bottom: 10em;
+}
+
+form {
+  @include center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5em;
+
+  & > input {
+    @include inputsText;
+  }
+
+  & > .sbmForm {
+    background-color: rgb(107, 109, 107);
+    margin-top: 3em;
+  }
+  & > label {
+    margin-top: 2vh;
+    font-weight: 600;
+    outline: none;
+    color: rgb(73, 73, 73);
+    border-bottom: 1px groove grey;
+    width: 90%;
+    @include center;
+  }
+}
+.selectType{
+  @include inputsText;
+  text-align: center;
+}

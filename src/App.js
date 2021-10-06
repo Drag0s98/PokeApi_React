@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-
 
 import './styles/styles.scss'
 import './App.css';
@@ -7,14 +7,24 @@ import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer'
+import { DataContext } from './context/pokeData.context'
 
 
 function App() {
 
+  const [data, setData] = useState([])
+
+  const [busqueda, setBusqueda] = useState([])
+
+
+  const pokeObj = { 
+    data, setData, busqueda, setBusqueda
+  }
+
   const sacarHeader = () => {
     if (window.location.pathname !== '/') {
       return {
-        display: 'block'
+        display: 'flex'
       }
     }
   }
@@ -27,13 +37,15 @@ function App() {
   }
 
   return (
-      <div className="App">
-        <BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <DataContext.Provider value={pokeObj}>
           <Header style={sacarHeader()} />
           <Main />
-          <Footer style={sacarFooter()} />
-        </BrowserRouter>
-      </div>
+        </DataContext.Provider>
+      </BrowserRouter>
+      <Footer style={sacarFooter()} />
+    </div>
   );
 }
 

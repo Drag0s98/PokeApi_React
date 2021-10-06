@@ -1,88 +1,36 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import ListaPokemon from "../ListaPokemon";
+import React, { useEffect, useState } from "react";
 
-import { useDebounce } from "use-debounce/lib";
+import Spinner from '../Spinner'
+import fetchHock from '../../hooks/feet-hook'
+import './Home.css'
 
 
-import './home.css'
+const Home = () => {
 
-const Main = () => {
+  const [pokemons, setPokemons] = useState([])
 
-  const [lista, setLista] = useState([])
+  const { result } = fetchHock(`https://pokeapi.co/api/v2/pokemon`)
 
-  const [value, setValue] = useState(null)
-
-  const [debounced] = useDebounce(value, 3000);
-
-  const [spinner, setSpinner] = useState(false)
-
-  const [texto, setTexto] = useState(false)
-
-  useEffect(async () => {
-    try {
-      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debounced}`)
-      setLista([...lista, res.data])
-    } catch (err) {
-    }
-  }, [debounced])
-  useEffect(async () => {
-    try {
-      if (value.length !== 0) {
-        setSpinner(true)
-        setTexto(false)
-        await new Promise(resolve => setTimeout(resolve, 3500))
-        setSpinner(false)
-        setTexto(true)
-      }
-    } catch (err) {
-    }
-  }, [value])
+  useEffect(() => {
+    setPokemons(result.results)
+  }, [result])
 
   return (
-    <section className='homeSection'>
-      <h3 className='welcomeMsg'>Bienvenido a PokeReact. Busca tu pokemon</h3>
-      <article className='pokeForm'>
-        <input type="text" className='pokeSearch' name='input' onChange={async (e) => {
-          setValue(e.target.value)
-          await new Promise(resolve => setTimeout(resolve, 4000))
-          e.target.value = ''
-        }} />
+    <section className='homeBox'>
+      <article className='welcomeBox'>
+        <h4 >Here you can found some pokemons to search in the browser</h4>
       </article>
-      <article className='pokeList'>
-        {spinner === true ?
-          <div className="stage">
-            <div className="poke bounce">
-            </div>
-          </div> : ''}
-        {texto === true ? <ListaPokemon data={lista} /> : ''}
+      <article>
+        <ul className='boxList'>
+          {
+            pokemons !== undefined ? pokemons.map((param, i) => {
+              return <li className='pokeNames' key={i}>{param.name}</li>
+            }) : <Spinner />
+          }
+        </ul>
       </article>
     </section>
   )
 };
 
-export default Main;
-
-/*
-const showSpin = async () => {
-
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      setSpinner(false)
-      setTexto(true)
-  }
-*/
-
-/*
-
-<article className='pokeList'>
-        {spinner === true ?
-          <div className="stage">
-            <div className="poke bounce">
-            </div>
-          </div> : ''}
-        {texto === true ? <ListaPokemon data={lista} /> : ''}
-      </article>
-
-
-
-*/
+export default Home;

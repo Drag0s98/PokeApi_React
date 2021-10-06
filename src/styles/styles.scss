@@ -1,5 +1,6 @@
 @import './utils/mixins';
 @import './utils/variables.scss';
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
 
 @font-face {
     font-family: PokemonHollow;
@@ -13,10 +14,12 @@
 @import './views/app';
 @import './components/entry';
 @import './components/header';
+@import './components/nav';
 @import './components/home';
+@import './components/search';
+@import './components/newPoke';
 @import './components/main';
 @import './components/card';
+@import './components/details';
 @import './components/error';
 @import './components/footer';
-
-/* sadadasadasds*/

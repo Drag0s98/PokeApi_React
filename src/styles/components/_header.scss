@@ -1,13 +1,30 @@
 header {
-  background-color:  $primary-color-red;
+  background: rgb(236, 255, 0);
+  background: radial-gradient(
+    circle,
+    rgba(236, 255, 0, 1) 0%,
+    rgba(255, 175, 0, 1) 43%,
+    rgba(255, 0, 0, 1) 100%
+  );
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
+  box-shadow: 3px 5px 3px grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+figure {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3em;
 }
 .head_logo {
-    content: url(../assets/img/title.png);
-    max-width: 15em;
+  content: url(../assets/img/title.png);
+  max-width: 15em;
 }
-header{
+header {
   display: none;
+}
+.homeBack {
+  z-index: 1000;
 }

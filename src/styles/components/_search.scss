@@ -1,0 +1,28 @@
+.welcomeMsg {
+  margin-left: 0.5em;
+  font-weight: 600;
+}
+.homeSection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.pokeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > .pokeSearch {
+    @include inputsText;
+  }
+  & > .pokeSearch:focus {
+    background-color: $primary-color-blue;
+    opacity: 0.8;
+  }
+}
+.pokeList {
+  margin-top: 5em;
+  margin-bottom: 10em;
+}
