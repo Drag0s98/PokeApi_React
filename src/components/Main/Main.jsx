@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Entry from '../Entry';
@@ -10,6 +10,7 @@ import Form from '../NewPoke';
 
 
 const Main = () => {
+
 
   return (
     <main>

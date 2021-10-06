@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useDebounce } from "use-debounce/lib";
 
 import ListaPokemon from "../ListaPokemon";
 import Spinner from "../Spinner";
+import { DataContext } from "../../context/pokeData.context";
 
 
 import './search.css'
 
 const Main = () => {
+
+  const hola = useContext(DataContext)
+
+  console.log(hola);
 
   const [lista, setLista] = useState([])
 
@@ -36,7 +41,7 @@ const Main = () => {
     }
   }, [debounced])
 
-  useEffect( () => {
+  useEffect(() => {
     try {
       if (value.length !== 0) {
         setSpinner(true)
