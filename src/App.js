@@ -12,13 +12,13 @@ import { DataContext } from './context/pokeData.context'
 
 function App() {
 
-  const [pokeData, setpokeData] = useState([])
+  const [data, setData] = useState([])
 
   const [busqueda, setBusqueda] = useState([])
 
 
   const pokeObj = { 
-    pokeData, setpokeData, busqueda, setBusqueda
+    data, setData, busqueda, setBusqueda
   }
 
   console.log(pokeObj);
