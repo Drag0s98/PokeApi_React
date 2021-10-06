@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useDebounce } from "use-debounce/lib";
 
+import { DataContext } from "../../context/pokeData.context";
 import ListaPokemon from "../ListaPokemon";
 import Spinner from "../Spinner";
 
@@ -10,17 +11,19 @@ import './search.css'
 
 const Main = () => {
 
-  const [lista, setLista] = useState([])
+  const { pokeData, setpokeData } = useContext(DataContext)
+
+  const { busqueda, setBusqueda} = useContext(DataContext)
 
   const [value, setValue] = useState(null)
 
-  const [busqueda, setBusqueda] = useState([])
+  // const [busqueda, setBusqueda] = useState([])
 
   const [debounced] = useDebounce(value, 3000);
 
   const [spinner, setSpinner] = useState(false)
 
-  const [texto, setTexto] = useState(false)
+  const [texto, setTexto] = useState(true)
 
   useEffect(() => {
     try {
@@ -28,7 +31,7 @@ const Main = () => {
       let exist = busqueda.includes(debounced)
       if (exist === false && debounced !== null) {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${debounced}`)
-          .then(response => setLista([...lista, response.data]))
+          .then(response => setpokeData([...pokeData, response.data]))
       } else {
         console.log('El pokemon existe');
       }
@@ -36,14 +39,17 @@ const Main = () => {
     }
   }, [debounced])
 
-  useEffect( () => {
+  useEffect(() => {
     try {
       if (value.length !== 0) {
+        console.log('entro');
         setSpinner(true)
         setTexto(false)
         new Promise(resolve => setTimeout(resolve, 3500))
-        setSpinner(false)
-        setTexto(true)
+        .then(() => {
+          setSpinner(false)
+          setTexto(true)
+        })
       }
     } catch (err) {
     }
@@ -61,7 +67,7 @@ const Main = () => {
       </article>
       <article className='pokeList'>
         {spinner === true ? <Spinner /> : ''}
-        {texto === true ? <ListaPokemon data={lista} /> : ''}
+        {texto === true ? <ListaPokemon data={pokeData} /> : ''}
       </article>
     </section>
   )
