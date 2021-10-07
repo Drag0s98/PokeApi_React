@@ -27,7 +27,7 @@ const Home = () => {
               return <li className='pokeNames' key={i}>{param.name}</li>
             }) : <Spinner />
           }
-        </ul>
+        </ul>x`
       </article>
     </section>
   )

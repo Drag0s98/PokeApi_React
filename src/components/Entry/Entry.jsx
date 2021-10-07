@@ -1,6 +1,6 @@
 import React from "react";
 
-import PokeBall from '../video/Pokeball.mp4'
+import PokeBall from '../../styles/assets/video/Pokeball.mp4'
 
 import './Entry.css'
 
